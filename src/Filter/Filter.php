@@ -25,27 +25,21 @@ class Filter
 		$field = $this->target->field;
 		$value = $this->conditions->value->value;
 
-		if( $this->conditions->value->isMultiple())
+		switch( $this->conditions->operator->name )
 		{
-			$model->whereIn( $field, $value );
-		}
-		else
-		{
-			switch( $this->conditions->operator->name )
-			{
-				case 'equal':     $model->where( $field, '=',  $value ); break;
-				case 'notequal':  $model->where( $field, '<>', $value ); break;
-				case 'less':      $model->where( $field, '<',  $value ); break;
-				case 'greater':   $model->where( $field, '>',  $value ); break;
-				case 'lesseq':    $model->where( $field, '<=', $value ); break;
-				case 'greatereq': $model->where( $field, '>=', $value ); break;
-				case 'like':      $model->where( $field, 'like', $value ); break;
-				case 'notlike':   $model->where( $field, 'not like', $value ); break;
-				case 'null':      $model->whereNull( $field ); break;
-				case 'notnull':   $model->whereNotNull( $field ); break;
-				case 'between':   $model->whereBetween( $field, $value ); break;
-				case 'notbetween':$model->whereNotBetween( $field, $value ); break;
-			}
+			case 'equal':     $model->where( $field, '=',  $value ); break;
+			case 'notequal':  $model->where( $field, '<>', $value ); break;
+			case 'less':      $model->where( $field, '<',  $value ); break;
+			case 'greater':   $model->where( $field, '>',  $value ); break;
+			case 'lesseq':    $model->where( $field, '<=', $value ); break;
+			case 'greatereq': $model->where( $field, '>=', $value ); break;
+			case 'like':      $model->where( $field, 'like', $value ); break;
+			case 'notlike':   $model->where( $field, 'not like', $value ); break;
+			case 'in':        $model->whereIn( $field, $value ); break;
+			case 'null':      $model->whereNull( $field ); break;
+			case 'notnull':   $model->whereNotNull( $field ); break;
+			case 'between':   $model->whereBetween( $field, $value ); break;
+			case 'notbetween':$model->whereNotBetween( $field, $value ); break;
 		}
 	}
 

@@ -17,6 +17,7 @@ class Operator
 			'lte' => 'lesseq',
 			'gte' => 'greatereq',
 			'bw' => 'between',
+			'in' => 'in',
 			'nbw' => 'notbetween',
 			'lk' => 'like',
 			'nlk' => 'notlike',

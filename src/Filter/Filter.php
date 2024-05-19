@@ -2,6 +2,8 @@
 
 namespace Iceylan\Restorm\Filter;
 
+use Iceylan\Restorm\Target;
+
 class Filter
 {
 	public Target $target;

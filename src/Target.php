@@ -1,6 +1,6 @@
 <?php
 
-namespace Iceylan\Restorm\Filter;
+namespace Iceylan\Restorm;
 
 class Target
 {

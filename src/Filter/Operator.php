@@ -25,6 +25,6 @@ class Operator
 			'nnl' => 'notnull',
 		];
 
-		$this->name = $map[ $this->rawOperator ] ?? $this->rawOperator;
+		$this->name = $map[ $rawOperator ] ?? $rawOperator;
 	}
 }

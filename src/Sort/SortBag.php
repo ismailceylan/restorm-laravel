@@ -13,7 +13,7 @@ class SortBag implements ArrayAccess
 
 	public function __construct()
 	{
-		foreach( request( 'sort' ) as $key => $value )
+		foreach( request( 'sort', []) as $key => $value )
 		{
 			$this->items[] = new Sort( $key, $value );
 		}

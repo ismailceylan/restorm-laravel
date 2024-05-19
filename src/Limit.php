@@ -8,7 +8,7 @@ class Limit
 
 	public function __construct()
 	{
-		$this->limit = request( 'limit' );
+		$this->limit = request( 'limit', null );
 	}
 
 	public function apply( $model )

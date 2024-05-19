@@ -13,7 +13,7 @@ class FieldBag implements ArrayAccess
 
 	public function __construct()
 	{
-		foreach( request( 'field' ) as $key => $value )
+		foreach( request( 'field', []) as $key => $value )
 		{
 			$this->items[] = new Field( $key, $value );
 		}

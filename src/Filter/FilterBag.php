@@ -13,7 +13,7 @@ class FilterBag implements ArrayAccess
 	
 	public function __construct()
 	{
-		foreach( request( 'filter' ) as $key => $value )
+		foreach( request( 'filter', []) as $key => $value )
 		{
 			$this->items[] = new Filter( $key, $value );
 		}

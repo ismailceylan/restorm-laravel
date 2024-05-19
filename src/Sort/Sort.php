@@ -12,4 +12,17 @@ class Sort
 	{
 		$this->target = new Target( $target );
 	}
+
+	public function forRelation(): bool
+	{
+		return $this->target->isRelation();
+	}
+
+	public function apply( $model )
+	{
+		$model->orderBy(
+			$this->target->field,
+			$this->direction
+		);
+	}
 }

@@ -17,11 +17,16 @@ class SortBag implements ArrayAccess
 		{
 			$this->items[] = new Sort( $key, $value );
 		}
-		dd( $this);
 	}
 
 	public function apply( $model )
 	{
-
+		foreach( $this->items as $sort )
+		{
+			if( ! $sort->forRelation())
+			{
+				$sort->apply( $model );
+			}
+		}
 	}
 }

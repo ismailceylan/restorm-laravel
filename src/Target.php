@@ -4,17 +4,16 @@ namespace Iceylan\Restorm;
 
 class Target
 {
-	public array $models;
+	public array $models = [];
 	public string|null $field;
 
 	public function __construct( string $target )
 	{
 		$parts = explode( '.', $target );
 
-		if( count( $parts ) === 1 && ! is_numeric( $parts[ 0 ]))
+		if( count( $parts ) === 1 )
 		{
-			$this->models[] = $parts[ 0 ];
-			$this->field = null;
+			$this->field = $parts[ 0 ];
 		}
 		else
 		{

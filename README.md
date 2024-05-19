@@ -17,7 +17,9 @@ use Iceylan\Restorm\Restorm;
 
 Route::get( 'api/v1.0/posts', function( Restorm $restorm )
 {
-	return $restorm->apply( Post::class )->get();
+	return $restorm
+		->apply( Post::class )
+		->get();
 });
 ```
 

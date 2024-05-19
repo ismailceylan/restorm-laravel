@@ -2,21 +2,25 @@
 
 namespace Iceylan\Restorm\Filter;
 
+use Iceylan\Restorm\Support\ArrayishBag;
+
 class FilterBag
 {
-	protected array $filters = [];
+	use ArrayishBag;
+
+	protected array $items = [];
 	
 	public function __construct()
 	{
 		foreach( request( 'filter' ) as $key => $value )
 		{
-			$this->filters[] = new Filter( $key, $value );
+			$this->items[] = new Filter( $key, $value );
 		}
 	}
 
 	public function apply( $model )
 	{
-		foreach( $this->filters as $filter )
+		foreach( $this->items as $filter )
 		{
 			if( ! $filter->forRelation())
 			{

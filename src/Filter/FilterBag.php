@@ -2,11 +2,12 @@
 
 namespace Iceylan\Restorm\Filter;
 
-use Iceylan\Restorm\Support\ArrayishBag;
+use ArrayAccess;
+use Iceylan\Restorm\Support\ArrayAccessible;
 
-class FilterBag
+class FilterBag implements ArrayAccess
 {
-	use ArrayishBag;
+	use ArrayAccessible;
 
 	protected array $items = [];
 	

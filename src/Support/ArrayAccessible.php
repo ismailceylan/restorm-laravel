@@ -2,7 +2,7 @@
 
 namespace Iceylan\Restorm\Support;
 
-trait ArrayishBag
+trait ArrayAccessible
 {
 	public function offsetExists( mixed $offset ): bool
 	{

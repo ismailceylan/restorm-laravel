@@ -16,7 +16,7 @@ class Conditions
 		if( count( $parts ) !== 2 )
 		{
 			throw new \Exception(
-				"Invalid filter conditions: $conditions. Format should be <operator>:$conditions"
+				"[Restorm] Invalid filter conditions: $conditions. Format should be <operator>:$conditions"
 			);
 		}
 

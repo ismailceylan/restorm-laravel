@@ -5,20 +5,34 @@ namespace Iceylan\Restorm;
 class Target
 {
 	public array $models = [];
-	public string|null $field;
+	public string|null $field = null;
 
-	public function __construct( string $target )
+	public function __construct( string $target, string $type )
 	{
-		$parts = explode( '.', $target );
-
-		if( count( $parts ) === 1 )
+		if( $type == 'relation' )
 		{
-			$this->field = $parts[ 0 ];
+			if( is_numeric( $target ))
+			{
+				// there is nothing to do
+			}
+			else
+			{
+				$this->models = explode( '.', $target );
+			}
 		}
-		else
+		else if( $type == 'field' )
 		{
-			$this->field = array_pop( $parts );
-			$this->models = $parts;
+			if( strpos( $target, '.' ) === false )
+			{
+				$this->field = $target;
+			}
+			else
+			{
+				$parts = explode( '.', $target );
+
+				$this->field = array_pop( $parts );
+				$this->models = $parts;
+			}
 		}
 	}
 

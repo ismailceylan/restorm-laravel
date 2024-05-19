@@ -10,7 +10,7 @@ class Sort
 	
 	public function __construct( string $target, public string $direction )
 	{
-		$this->target = new Target( $target );
+		$this->target = new Target( $target, type: 'field' );
 	}
 
 	public function forRelation(): bool

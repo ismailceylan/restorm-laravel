@@ -11,7 +11,7 @@ class Filter
 
 	public function __construct( string $target, string $conditions )
 	{
-		$this->target = new Target( $target );
+		$this->target = new Target( $target, type: 'field' );
 		$this->conditions = new Conditions( $conditions );
 	}
 

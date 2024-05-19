@@ -12,7 +12,7 @@ class Field
 
 	public function __construct( string $key, string $value )
 	{
-		$this->target = new Target( $key );
+		$this->target = new Target( $key, type: 'relation' );
 		$this->value = new Value( $value );
 	}
 

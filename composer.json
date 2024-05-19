@@ -1,0 +1,19 @@
+{
+    "name": "iceylan/restorm",
+    "description": "A Laravel plugin that feeds the Restorm in harmony running on the client side.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Iceylan\\Restorm\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ismail Ceylan",
+            "email": "ismaillceylan@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

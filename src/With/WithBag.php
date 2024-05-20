@@ -4,14 +4,11 @@ namespace Iceylan\Restorm\With;
 
 use ArrayAccess;
 use Iceylan\Restorm\Restorm;
-use Iceylan\Restorm\Support\ArrayAccessible;
-use Iceylan\Restorm\Support\Filter;
+use Iceylan\Restorm\Support\BagContract;
 
 class WithBag implements ArrayAccess
 {
-	use ArrayAccessible;
-
-	public array $items = [];
+	use BagContract;
 
 	public function __construct( protected Restorm $restorm )
 	{

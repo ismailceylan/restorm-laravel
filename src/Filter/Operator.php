@@ -25,6 +25,11 @@ class Operator
 			'nnl' => 'notnull',
 		];
 
-		$this->name = $map[ $rawOperator ] ?? $rawOperator;
+		if( ! array_key_exists( $rawOperator, $map ))
+		{
+			throw new \Exception( "Unknown operator: $rawOperator" );
+		}
+
+		$this->name = $map[ $rawOperator ];
 	}
 }

@@ -12,7 +12,7 @@ use Iceylan\Restorm\With\WithBag;
 class Restorm
 {
 	public FilterBag $filters;
-	public Limit $limits;
+	public Limit $limit;
 	public SortBag $sorts;
 	public FieldBag $fields;
 	public WithBag $withs;
@@ -21,7 +21,7 @@ class Restorm
 	public function __construct()
 	{
 		$this->filters = new FilterBag;
-		$this->limits = new Limit;
+		$this->limit = new Limit;
 		$this->sorts = new SortBag;
 		$this->fields = new FieldBag;
 		$this->withs = new WithBag( $this );
@@ -34,7 +34,7 @@ class Restorm
 		$model = new ModelProxy( $model );
 		
 		$this->filters->apply( $model );
-		$this->limits->apply( $model );
+		$this->limit->apply( $model );
 		$this->sorts->apply( $model );
 		$this->fields->apply( $model );
 		$this->withs->apply( $model );

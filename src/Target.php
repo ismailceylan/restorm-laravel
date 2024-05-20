@@ -53,4 +53,8 @@ class Target
 		return implode( '.', $stack );
 	}
 
+	public function getFullModelNS(): string
+	{
+		return implode( '.', $this->models );
+	}
 }

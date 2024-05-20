@@ -13,6 +13,9 @@ class Limit
 
 	public function apply( $model )
 	{
-		$model->limit( $this->limit );
+		if( $this->limit )
+		{
+			$model->limit( $this->limit );
+		}
 	}
 }

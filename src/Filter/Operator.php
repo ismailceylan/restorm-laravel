@@ -22,7 +22,7 @@ class Operator
 			'lk' => 'like',
 			'nlk' => 'notlike',
 			'nl' => 'null',
-			'nnl' => 'notnull',
+			'nn' => 'notnull',
 		];
 
 		if( ! array_key_exists( $rawOperator, $map ))

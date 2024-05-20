@@ -4,6 +4,7 @@ namespace Iceylan\Restorm\Support;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
 class ModelProxy
@@ -13,7 +14,7 @@ class ModelProxy
 
 	}
 
-	public function __call( string $name, array $args ): ModelProxy
+	public function __call( string $name, array $args ): ModelProxy|LengthAwarePaginator
 	{
 		if( $this->model instanceof Model )
 		{
@@ -32,7 +33,12 @@ class ModelProxy
 		}
 		else if( $this->model instanceof Builder )
 		{
-			$this->model->{ $name }( ...$args );
+			$result = $this->model->{ $name }( ...$args );
+
+			if( $name == 'paginate' )
+			{
+				return $result;
+			}
 		}
 
 		return $this;

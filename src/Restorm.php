@@ -16,6 +16,7 @@ class Restorm
 	public SortBag $sorts;
 	public FieldBag $fields;
 	public WithBag $withs;
+	public Paginate $paginate;
 
 	public function __construct()
 	{
@@ -24,6 +25,7 @@ class Restorm
 		$this->sorts = new SortBag;
 		$this->fields = new FieldBag;
 		$this->withs = new WithBag( $this );
+		$this->paginate = new Paginate( $this );
 
 	}
 
@@ -36,6 +38,11 @@ class Restorm
 		$this->sorts->apply( $model );
 		$this->fields->apply( $model );
 		$this->withs->apply( $model );
+
+		if( $this->paginate->mode )
+		{
+			return $this->paginate->apply( $model );
+		}
 
 		return $model->get();
 	}

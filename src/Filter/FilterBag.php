@@ -3,6 +3,8 @@
 namespace Iceylan\Restorm\Filter;
 
 use ArrayAccess;
+use Iceylan\Restorm\Target;
+use Illuminate\Support\Collection;
 use Iceylan\Restorm\Support\ArrayAccessible;
 
 class FilterBag implements ArrayAccess
@@ -30,8 +32,18 @@ class FilterBag implements ArrayAccess
 		}
 	}
 
-	public function getFiltersByRelationName( $relationName )
+	public function getByTarget( Target $target ): Collection
 	{
-		
+		$stack = [];
+
+		foreach( $this->items as $filter )
+		{
+			if( $filter->target->models == $target->models )
+			{
+				$stack[] = $filter;
+			}
+		}
+
+		return new Collection( $stack );
 	}
 }

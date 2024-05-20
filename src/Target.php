@@ -40,4 +40,17 @@ class Target
 	{
 		return count( $this->models ) > 0;
 	}
+
+	public function __toString(): string
+	{
+		$stack = [ ...$this->models ];
+
+		if( $this->field )
+		{
+			$stack[] = $this->field;
+		}
+
+		return implode( '.', $stack );
+	}
+
 }

@@ -21,6 +21,6 @@ class Conditions
 		}
 
 		$this->operator = new Operator( $parts[ 0 ]);
-		$this->value = new Value( $parts[ 1 ]);
+		$this->value = new Value( $parts[ 1 ] ?? true );
 	}
 }

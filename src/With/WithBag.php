@@ -25,17 +25,20 @@ class WithBag implements ArrayAccess
 	{
 		foreach( $this->items as $relation )
 		{
-			$model->with(
-				$relation->target->getFullModelNS(),
-				function( $builder ) use ( $relation )
+			$relationNS = $relation->target->getFullModelNS();
+			
+			$model->with( $relationNS, function( $builder ) use ( $relation )
+			{
+				foreach( [ 'filters', 'fields', 'sorts' ] as $target )
 				{
-					$this->restorm->filters
+					$this->restorm
+						->{ $target }
 						->getByTarget( $relation->target )
-						->each( fn( Filter $filter ) =>
-							$filter->apply( $builder )
+						->each( fn( $item ) =>
+							$item->apply( $builder )
 						);
 				}
-			);
+			});
 		}
 	}
 }

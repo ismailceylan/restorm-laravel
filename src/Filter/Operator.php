@@ -18,6 +18,7 @@ class Operator
 			'gte' => 'greatereq',
 			'bw' => 'between',
 			'in' => 'in',
+			'nin' => 'notin',
 			'nbw' => 'notbetween',
 			'lk' => 'like',
 			'nlk' => 'notlike',

@@ -36,6 +36,7 @@ class Filter
 			case 'like':      $model->where( $field, 'like', $value ); break;
 			case 'notlike':   $model->where( $field, 'not like', $value ); break;
 			case 'in':        $model->whereIn( $field, $value ); break;
+			case 'notin':     $model->whereNotIn( $field, $value ); break;
 			case 'null':      $model->whereNull( $field ); break;
 			case 'notnull':   $model->whereNotNull( $field ); break;
 			case 'between':   $model->whereBetween( $field, $value ); break;

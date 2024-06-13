@@ -15,7 +15,7 @@ Let's just keep things simple, we can use it in laravel `routes/api.php` file li
 use App\Models\Post;
 use Iceylan\Restorm\Restorm;
 
-Route::get( 'api/v1.0/posts', function( Restorm $restorm )
+Route::get( 'v1.0/posts', function( Restorm $restorm )
 {
 	return $restorm
 		->apply( Post::class )

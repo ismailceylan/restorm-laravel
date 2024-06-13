@@ -52,4 +52,4 @@ We can pass the following types as a parameter to the `apply` method:
 
 Restorm will parse the request and make modification on the model that we just passed to it, depending on the directives that carried by the request.
 
-It will return the QueryBuilder instance back with the modifications that applied to it. We can continue to work with that query builder as we did before in Laravel.
+It will return the QueryBuilder, Model, Relation, or whatever we passed at the first stage. It will be back with the modifications applied to it. We can continue to work with that source as we did before in Laravel.
